@@ -7,6 +7,6 @@ namespace Vorlage.Core.ViewModels
 {
     public class MainViewModel : MvxViewModel
     {
-
+        
     }
 }

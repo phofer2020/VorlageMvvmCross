@@ -8,19 +8,24 @@ using Serilog;
 using Serilog.Extensions.Logging;
 
 // documentation
-
 namespace Vorlage.Wpf
 {
     public class Setup : MvxWpfSetup<Core.Setup>
     {
-        protected override ILoggerFactory CreateLogFactory()
-        {
-            return null;
-        }
-
         protected override ILoggerProvider CreateLogProvider()
         {
-            return null;
+            return new SerilogLoggerProvider();
+        }
+
+        protected override ILoggerFactory CreateLogFactory()
+        {
+            // serilog configuration
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Trace()
+                .CreateLogger();
+
+            return new SerilogLoggerFactory();
         }
     }
 }
