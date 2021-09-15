@@ -12,7 +12,7 @@ namespace Vorlage.Wpf
     {
         protected override void RegisterSetup()
         {
-            this.RegisterSetupType<MvxWpfSetup<Setup>>();
+            this.RegisterSetupType<Setup>();
         }
     }
 }
